@@ -43,31 +43,40 @@ class _btncamState extends State<btncam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          //title: Text(""),
-
-          ),
       body: Container(
-        color: Colors.white, // background
-        child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+              Color.fromARGB(255, 243, 168, 5),
+              Color.fromARGB(255, 50, 121, 228),
+              Color.fromARGB(255, 160, 15, 165)
+            ])), // background
+
+        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Choose Filtering Mode",
-                style: TextStyle(fontSize: 35),
+                "Choose Filter Mode",
+                style: TextStyle(fontSize: 35, color: Colors.white),
               ),
               const SizedBox(
-                height: 200,
+                height: 100,
               ),
 
               //button
               ElevatedButton.icon(
                 //for proton filter
                 style: ElevatedButton.styleFrom(
-                    minimumSize: Size(180, 60),
-                    textStyle: const TextStyle(fontSize: 35),
-                    primary: Colors.lightBlue),
+                  minimumSize: Size(180, 60),
+                  textStyle: const TextStyle(fontSize: 35),
+                  primary: Color.fromARGB(158, 13, 207, 255),
+                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50)),
+                ),
                 onPressed: () {
                   Navigator.of(context).pushNamed(ProtonFillPage.Protonopia);
                 },
@@ -79,9 +88,14 @@ class _btncamState extends State<btncam> {
               ElevatedButton.icon(
                 //for Tritanopia filter
                 style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(180, 60),
-                    textStyle: const TextStyle(fontSize: 35),
-                    primary: Colors.lightBlue),
+                  minimumSize: const Size(180, 60),
+                  textStyle: const TextStyle(fontSize: 35),
+                  primary: Color.fromARGB(158, 13, 207, 255),
+                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 45),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50)),
+                ),
+
                 onPressed: () {
                   Navigator.of(context)
                       .pushNamed(TritanopiaFillPage.Tritanopia);
@@ -94,9 +108,13 @@ class _btncamState extends State<btncam> {
               ElevatedButton.icon(
                 //for Deuternomaly filter
                 style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(180, 60),
-                    textStyle: const TextStyle(fontSize: 35),
-                    primary: Colors.lightBlue),
+                  minimumSize: const Size(180, 60),
+                  textStyle: const TextStyle(fontSize: 35),
+                  primary: Color.fromARGB(158, 13, 207, 255),
+                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50)),
+                ),
                 onPressed: () {
                   Navigator.of(context).pushNamed(DeuternFillPage.Deuternomaly);
                 },
