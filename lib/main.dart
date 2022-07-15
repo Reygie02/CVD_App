@@ -81,7 +81,7 @@ class _btncamState extends State<btncam> {
                   Navigator.of(context).pushNamed(ProtonFillPage.Protonopia);
                 },
                 label: const Text("Protonopia"),
-                icon: const Icon(Icons.camera_enhance),
+                icon: const Icon(Icons.filter_1_rounded),
               ),
               const SizedBox(height: 20),
 
@@ -102,7 +102,7 @@ class _btncamState extends State<btncam> {
                       .pushNamed(TritanopiaFillPage.Tritanopia);
                 },
                 label: const Text("Tritanopia"),
-                icon: const Icon(Icons.camera_enhance),
+                icon: const Icon(Icons.filter_2_rounded),
               ),
               const SizedBox(height: 20),
 
@@ -121,7 +121,7 @@ class _btncamState extends State<btncam> {
                   Navigator.of(context).pushNamed(DeuternFillPage.Deuternomaly);
                 },
                 label: const Text("Deuternomaly"),
-                icon: const Icon(Icons.camera_enhance),
+                icon: const Icon(Icons.filter_3_rounded),
               ),
             ],
           ),
