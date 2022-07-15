@@ -1,6 +1,5 @@
 /// A function that is used to navigate to the next page.
-import 'package:devcvd/DeuternomallyFill.dart';
-import 'package:devcvd/TritonopiaFill.dart';
+
 import 'package:flutter/material.dart';
 import 'ProtonopiaFill.dart';
 import 'TritonopiaFill.dart';
@@ -19,12 +18,12 @@ class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // debug hastag
+      // debugShowCheckedModeBanner: false, // debug hastag
       home: const btncam(),
       routes: {
-        ProtonFillPage.Protonopia: ((_) => ProtonFillPage()),
+        ProtonFillPage.Protonopia: ((_) => const ProtonFillPage()),
         TritanopiaFillPage.Tritanopia: ((_) => const TritanopiaFillPage()),
-        DeuternFillPage.Deuternomaly: ((_) => DeuternFillPage()) //end
+        DeuternFillPage.Deuternomaly: ((_) => const DeuternFillPage()) //end
       },
     );
   }
@@ -44,7 +43,7 @@ class _btncamState extends State<btncam> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -70,10 +69,11 @@ class _btncamState extends State<btncam> {
               ElevatedButton.icon(
                 //for proton filter
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(180, 60),
+                  minimumSize: const Size(180, 60),
                   textStyle: const TextStyle(fontSize: 35),
-                  primary: Color.fromARGB(158, 13, 207, 255),
-                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
+                  primary: const Color.fromARGB(158, 13, 207, 255),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
                 ),
@@ -81,7 +81,7 @@ class _btncamState extends State<btncam> {
                   Navigator.of(context).pushNamed(ProtonFillPage.Protonopia);
                 },
                 label: const Text("Protonopia"),
-                icon: const Icon(Icons.image),
+                icon: const Icon(Icons.camera_enhance),
               ),
               const SizedBox(height: 20),
 
@@ -90,8 +90,9 @@ class _btncamState extends State<btncam> {
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(180, 60),
                   textStyle: const TextStyle(fontSize: 35),
-                  primary: Color.fromARGB(158, 13, 207, 255),
-                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 45),
+                  primary: const Color.fromARGB(158, 13, 207, 255),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 45),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
                 ),
@@ -101,7 +102,7 @@ class _btncamState extends State<btncam> {
                       .pushNamed(TritanopiaFillPage.Tritanopia);
                 },
                 label: const Text("Tritanopia"),
-                icon: const Icon(Icons.image),
+                icon: const Icon(Icons.camera_enhance),
               ),
               const SizedBox(height: 20),
 
@@ -110,8 +111,9 @@ class _btncamState extends State<btncam> {
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(180, 60),
                   textStyle: const TextStyle(fontSize: 35),
-                  primary: Color.fromARGB(158, 13, 207, 255),
-                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                  primary: const Color.fromARGB(158, 13, 207, 255),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
                 ),
@@ -119,7 +121,7 @@ class _btncamState extends State<btncam> {
                   Navigator.of(context).pushNamed(DeuternFillPage.Deuternomaly);
                 },
                 label: const Text("Deuternomaly"),
-                icon: const Icon(Icons.image),
+                icon: const Icon(Icons.camera_enhance),
               ),
             ],
           ),
