@@ -11,7 +11,10 @@ class ProtonFillPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         title: Text("This is protonCam Section"),
       ),
       body: Container(

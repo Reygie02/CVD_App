@@ -1,7 +1,7 @@
 /// A function that is used to navigate to the next page.
 
 import 'package:flutter/material.dart';
-// import 'Filtermode.dart'; // package for filter mode
+import 'Filtermode.dart'; // package for filter mode
 
 void main() => runApp(const Myapp());
 
@@ -19,7 +19,7 @@ class _MyappState extends State<Myapp> {
       debugShowCheckedModeBanner: false, // debug hastag
       home: const btncam(),
       routes: {
-        // Filter.filtermode: ((_) => Filter()), // to call filter UI
+        Filter.filtermode: ((_) => Filter()), // to call filter UI
       },
     );
   }
@@ -54,7 +54,7 @@ class _btncamState extends State<btncam> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Main Menu",
+                "Welcome",
                 style: TextStyle(fontSize: 35, color: Colors.white),
               ),
               const SizedBox(
@@ -74,7 +74,8 @@ class _btncamState extends State<btncam> {
                       borderRadius: BorderRadius.circular(50)),
                 ),
                 onPressed: () {
-                  // Navigator.of(context).pushNamed(Filter.filtermode); // to try the filter mode
+                  Navigator.of(context)
+                      .pushNamed(Filter.filtermode); // to try the filter mode
                 },
                 label: const Text("Camera"),
                 icon: const Icon(Icons.camera),

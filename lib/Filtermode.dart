@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'ProtonopiaFill.dart';
 import 'TritonopiaFill.dart';
 import 'DeuternomallyFill.dart';
+import 'main.dart';
 
 class Filter extends StatefulWidget {
   Filter({Key? key}) : super(key: key);
@@ -38,8 +39,21 @@ class _modeState extends State<mode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text("Choose Filter Mode"),
+        title: Text(
+          "Choose Filter Mode",
+          style: TextStyle(fontSize: 26),
+        ),
+        centerTitle: true,
+        leading: BackButton(
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => const Myapp()));
+          },
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Container(
         decoration: const BoxDecoration(
