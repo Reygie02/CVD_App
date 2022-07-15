@@ -31,34 +31,7 @@ class DeuternFillPage extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(180, 60),
-                      textStyle: const TextStyle(fontSize: 35),
-                      primary: const Color.fromARGB(158, 13, 207, 255),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 30, horizontal: 40),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
-                    onPressed: () {},
-                    icon: const Icon(Icons.camera_enhance),
-                    label: const Text("Capture")),
-                const SizedBox(height: 20),
-                ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(180, 60),
-                      textStyle: const TextStyle(fontSize: 35),
-                      primary: const Color.fromARGB(158, 13, 207, 255),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 30, horizontal: 50),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
-                    onPressed: () {},
-                    icon: const Icon(Icons.image),
-                    label: const Text("Image")),
-                const SizedBox(height: 20),
+                Icon(Icons.camera),
               ],
             )
           ],
