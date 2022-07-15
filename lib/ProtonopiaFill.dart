@@ -12,7 +12,7 @@ class ProtonFillPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("This is protonCam Section"),
+        title: Text("This is protonCam Section"),
       ),
       body: Container(
         decoration: const BoxDecoration(

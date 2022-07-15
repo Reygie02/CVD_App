@@ -1,9 +1,7 @@
 /// A function that is used to navigate to the next page.
 
 import 'package:flutter/material.dart';
-import 'ProtonopiaFill.dart';
-import 'TritonopiaFill.dart';
-import 'DeuternomallyFill.dart';
+import 'Filtermode.dart';
 
 void main() => runApp(const Myapp());
 
@@ -18,12 +16,10 @@ class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // debugShowCheckedModeBanner: false, // debug hastag
+      debugShowCheckedModeBanner: false, // debug hastag
       home: const btncam(),
       routes: {
-        ProtonFillPage.Protonopia: ((_) => const ProtonFillPage()),
-        TritanopiaFillPage.Tritanopia: ((_) => const TritanopiaFillPage()),
-        DeuternFillPage.Deuternomaly: ((_) => const DeuternFillPage()) //end
+        Filter.filtermode: ((_) => Filter()),
       },
     );
   }
@@ -58,7 +54,7 @@ class _btncamState extends State<btncam> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Choose Filter Mode",
+                "Main Menu",
                 style: TextStyle(fontSize: 35, color: Colors.white),
               ),
               const SizedBox(
@@ -78,51 +74,29 @@ class _btncamState extends State<btncam> {
                       borderRadius: BorderRadius.circular(50)),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushNamed(ProtonFillPage.Protonopia);
+                  Navigator.of(context).pushNamed(Filter.filtermode);
                 },
-                label: const Text("Protonopia"),
-                icon: const Icon(Icons.filter_1_rounded),
+                label: const Text("Camera"),
+                icon: const Icon(Icons.camera),
               ),
               const SizedBox(height: 20),
 
               ElevatedButton.icon(
-                //for Tritanopia filter
+                //for proton filter
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(180, 60),
                   textStyle: const TextStyle(fontSize: 35),
                   primary: const Color.fromARGB(158, 13, 207, 255),
                   padding:
-                      const EdgeInsets.symmetric(vertical: 30, horizontal: 45),
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
                 ),
-
-                onPressed: () {
-                  Navigator.of(context)
-                      .pushNamed(TritanopiaFillPage.Tritanopia);
-                },
-                label: const Text("Tritanopia"),
-                icon: const Icon(Icons.filter_2_rounded),
+                onPressed: () {},
+                label: const Text("Gallery"),
+                icon: const Icon(Icons.image),
               ),
               const SizedBox(height: 20),
-
-              ElevatedButton.icon(
-                //for Deuternomaly filter
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(180, 60),
-                  textStyle: const TextStyle(fontSize: 35),
-                  primary: const Color.fromARGB(158, 13, 207, 255),
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50)),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed(DeuternFillPage.Deuternomaly);
-                },
-                label: const Text("Deuternomaly"),
-                icon: const Icon(Icons.filter_3_rounded),
-              ),
             ],
           ),
         ]),

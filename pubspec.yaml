@@ -53,12 +53,15 @@ flutter_icons:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-  flutter_native_splash: ^2.0.1+1
+  flutter_native_splash: ^0.2.8
 
 flutter_native_splash:
   color: "#FFFFFF"
   image: assets/Logocvd.png
-
+  color_dark: "#1a1a1a"
+  image_dark: assets/Logocvd.png
+  android: true
+  ios: true
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
