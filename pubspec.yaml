@@ -39,12 +39,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_launcher_icons: ^0.9.2
-
-flutter_icons:
-  android: true
-  ios: true
-  image_path: assets/Logocvd.png
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -52,16 +46,24 @@ flutter_icons:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  image_picker: 
+  path_provider:
 
-  flutter_native_splash: ^0.2.8
+  flutter_native_splash: 
+  flutter_launcher_icons: 
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/SplashLogo.png"
 
 flutter_native_splash:
   color: "#FFFFFF"
-  image: assets/Logocvd.png
-  color_dark: "#1a1a1a"
-  image_dark: assets/Logocvd.png
+  image: assets/splash.png
   android: true
   ios: true
+
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -74,8 +76,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/SplashLogo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
