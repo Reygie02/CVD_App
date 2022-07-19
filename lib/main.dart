@@ -7,9 +7,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// import 'Filtermode.dart'; // package for filter mode
-// import 'imageFilter.dart';// package for filter mode
-
 // ignore: depend_on_referenced_packages
 import 'package:image_picker/image_picker.dart';
 // ignore: depend_on_referenced_packages
@@ -17,47 +14,33 @@ import 'package:path/path.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path_provider/path_provider.dart';
 
-void main() => runApp(const Myapp());
+// import 'Camexam.dart'; // for example of camera picker
 
-class Myapp extends StatefulWidget {
-  const Myapp({Key? key}) : super(key: key);
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  //disable auto rotate screen
 
-  @override
-  State<Myapp> createState() => _MyappState();
-}
-
-class _MyappState extends State<Myapp> {
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false, // debug hastag
-      home: btncam(),
-      routes: {
-        // Filter.filtermode: ((_) => Filter()),// to call filter page example
-        // imgfilter.imgfiltermode: ((_) => imgfilter()), // to call filter page example
-      },
-    );
-  }
+  runApp(const HomePage());
 }
 
 // ignore: camel_case_types
-class btncam extends StatefulWidget {
-  const btncam({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<btncam> createState() => _btncamState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 // ignore: camel_case_types
-class _btncamState extends State<btncam> {
+class _HomePageState extends State<HomePage> {
   File? image;
 
   Future pickImage(ImageSource source) async {
     try {
       await ImagePicker().pickImage(source: source);
       if (image == null) return;
-
-      // final imageTemporary = File(image!.path);
       final imagePermanent = await saveImagePermanently(image!.path);
       setState(() => this.image = imagePermanent);
     } on PlatformException catch (e) {
@@ -75,79 +58,86 @@ class _btncamState extends State<btncam> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-              Color.fromARGB(255, 243, 168, 5),
-              Color.fromARGB(255, 50, 121, 228),
-              Color.fromARGB(255, 160, 15, 165)
-            ])), // background
+    return MaterialApp(
+        debugShowCheckedModeBanner: false, // debug hastag
+        home: Scaffold(
+          body: Center(
+            child: Container(
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                    Color.fromARGB(255, 243, 168, 5),
+                    Color.fromARGB(255, 50, 121, 228),
+                    Color.fromARGB(255, 160, 15, 165)
+                  ])), // background
 
-        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Welcome",
-                style: TextStyle(fontSize: 35, color: Colors.white),
-              ),
-              const Text(
-                "this is CVD camera application",
-                style: TextStyle(fontSize: 25, color: Colors.white),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Welcome",
+                      style: TextStyle(fontSize: 35, color: Colors.white),
+                    ),
+                    const Text(
+                      "this is CVD camera application",
+                      style: TextStyle(fontSize: 25, color: Colors.white),
+                    ),
+                    const SizedBox(
+                      height: 100,
+                    ),
 
-              //button
+                    //button
 
-              const SizedBox(height: 20),
-              ElevatedButton.icon(
-                //for camera filter
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(180, 60),
-                  textStyle: const TextStyle(fontSize: 35),
-                  primary: const Color.fromARGB(255, 248, 4, 138),
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50)),
+                    const SizedBox(height: 20),
+                    ElevatedButton.icon(
+                      //for camera filter
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(180, 60),
+                        textStyle: const TextStyle(fontSize: 35),
+                        primary: const Color.fromARGB(199, 248, 4, 138),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50)),
+                      ),
+                      onPressed: () {
+                        pickImage(ImageSource.camera);
+                      },
+                      label: const Text("Camera"),
+                      icon: const Icon(Icons.camera),
+                    ),
+                    const SizedBox(height: 20),
+
+                    ElevatedButton.icon(
+                      //for image filter
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(180, 60),
+                        textStyle: const TextStyle(fontSize: 35),
+                        primary: const Color.fromARGB(214, 243, 168, 5),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50)),
+                      ),
+                      onPressed: () {
+                        pickImage(ImageSource.gallery);
+
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //     builder: (context) =>
+                        //         const openCv())); // for example of camera picker
+                      },
+                      label: const Text("Gallery"),
+                      icon: const Icon(Icons.image),
+                    ),
+                  ],
                 ),
-                onPressed: () {
-                  pickImage(ImageSource.camera);
-                  // Navigator.of(context).pushNamed(Filter.filtermode); // for filter page example only
-                },
-                label: const Text("Camera"),
-                icon: const Icon(Icons.camera),
-              ),
-              const SizedBox(height: 20),
-
-              ElevatedButton.icon(
-                //for image filter
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(180, 60),
-                  textStyle: const TextStyle(fontSize: 35),
-                  primary: const Color.fromARGB(255, 243, 168, 5),
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50)),
-                ),
-                onPressed: () {
-                  pickImage(ImageSource.gallery);
-                  // Navigator.of(context).pushNamed(imgfilter.imgfiltermode);// for filter page example only
-                },
-                label: const Text("Gallery"),
-                icon: const Icon(Icons.image),
-              ),
-            ],
+              ]),
+            ),
           ),
-        ]),
-      ),
-    );
+        ));
   }
 }
