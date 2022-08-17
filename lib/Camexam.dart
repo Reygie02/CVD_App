@@ -1,4 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages, file_names
+// ignore_for_file: depend_on_referenced_packages, file_names, camel_case_types, duplicate_ignore
 
 import 'dart:async';
 import 'dart:io';
