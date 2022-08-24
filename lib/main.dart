@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'screenpage/homepage.dart';
+import 'src/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

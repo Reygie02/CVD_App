@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:devcvd/src/shared/authentication/terms_of_use.dart';
 
 class homepage extends StatefulWidget {
   homepage({Key? key}) : super(key: key);
@@ -61,6 +62,9 @@ class _homepageState extends State<homepage> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const SizedBox(
+                      height: 150,
+                    ),
                     const Image(
                       image: const AssetImage('assets/splash.png'),
                       width: 160,
@@ -116,6 +120,10 @@ class _homepageState extends State<homepage> {
                       label: const Text("Gallery"),
                       icon: const Icon(Icons.image),
                     ),
+                    const SizedBox(
+                      height: 150,
+                    ),
+                    TermsOfUse(),
                   ],
                 ),
               ]),
