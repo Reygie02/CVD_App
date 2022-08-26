@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors_in_immutables, depend_on_referenced_packages, unnecessary_const, avoid_print, prefer_const_constructors
 import 'dart:io';
+import 'package:devcvd/src/pages/camera_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -89,10 +90,10 @@ class _homepageState extends State<homepage> {
                           shadowColor: const Color.fromARGB(255, 0, 0, 0)),
 
                       onPressed: () {
-                        pickImage(ImageSource.camera);
+                        // pickImage(ImageSource.camera);
 
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) => const campage()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => addVideoPage()));
                       },
                       label: const Text("Camera"),
                       icon: const Icon(Icons.camera),

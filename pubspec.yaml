@@ -53,6 +53,7 @@ dev_dependencies:
   video_player:
   flutter_markdown: ^0.6.10+4
   animations: ^2.0.3
+  camera: ^0.10.0+1
   
  
 
