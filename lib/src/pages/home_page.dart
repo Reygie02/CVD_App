@@ -1,42 +1,17 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors_in_immutables, depend_on_referenced_packages, unnecessary_const, avoid_print, prefer_const_constructors
-import 'dart:io';
+// ignore_for_file: camel_case_types, prefer_const_constructors_in_immutables, depend_on_referenced_packages, unnecessary_const, avoid_print, prefer_const_constructors, unused_import, deprecated_member_use
+
 import 'package:devcvd/src/pages/camera_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:devcvd/src/shared/authentication/terms_of_use.dart';
+import 'package:devcvd/src/pages/imagepicker.dart';
 
 class homepage extends StatefulWidget {
   homepage({Key? key}) : super(key: key);
-
   @override
   State<homepage> createState() => _homepageState();
 }
 
 class _homepageState extends State<homepage> {
-  File? image;
-
-  Future pickImage(ImageSource source) async {
-    try {
-      await ImagePicker().pickImage(source: source);
-      if (image == null) return;
-      final imagePermanent = await saveImagePermanently(image!.path);
-      setState(() => image = imagePermanent);
-    } on PlatformException catch (e) {
-      print('Failed to pick Image: $e');
-    }
-  }
-
-  Future<File> saveImagePermanently(String imagePath) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final name = basename(imagePath);
-    final image = File('$directory.path}/$name');
-
-    return File(imagePath).copy(image.path);
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -76,7 +51,6 @@ class _homepageState extends State<homepage> {
                     ),
 
                     //button
-
                     ElevatedButton.icon(
                       //for camera filter
                       style: ElevatedButton.styleFrom(
@@ -90,18 +64,18 @@ class _homepageState extends State<homepage> {
                           shadowColor: const Color.fromARGB(255, 0, 0, 0)),
 
                       onPressed: () {
-                        // pickImage(ImageSource.camera);
-
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => addVideoPage()));
                       },
-                      label: const Text("Camera"),
+                      label: const Text("Live"),
                       icon: const Icon(Icons.camera),
                     ),
+
                     const SizedBox(height: 20),
 
                     ElevatedButton.icon(
                       //for image filter
+
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(180, 60),
                         textStyle: const TextStyle(fontSize: 35),
@@ -112,13 +86,10 @@ class _homepageState extends State<homepage> {
                             borderRadius: BorderRadius.circular(50)),
                       ),
                       onPressed: () {
-                        pickImage(ImageSource.gallery);
-
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) =>
-                        //         const openCv())); // for example of camera picker
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ImagePckr()));
                       },
-                      label: const Text("Gallery"),
+                      label: const Text("Image"),
                       icon: const Icon(Icons.image),
                     ),
                     const SizedBox(
